@@ -599,52 +599,27 @@ nav a:hover::after {
 
 /* Primera palabra - Narradora */
 .typewriter-word:nth-child(1) {
-    animation: 
-        showWord 0s 0s forwards,
-        typeIn 1.5s steps(12, end) 0s forwards,
-        typeOut 1s steps(12, end) 3s forwards,
-        hideWord 0s 4s forwards;
+    animation: typeWord1 20s ease infinite;
 }
 
 /* Segunda palabra - Soñadora */
 .typewriter-word:nth-child(2) {
-    animation: 
-        showWord 0s 4s forwards,
-        typeIn 1.5s steps(12, end) 4s forwards,
-        typeOut 1s steps(12, end) 7s forwards,
-        hideWord 0s 8s forwards;
+    animation: typeWord2 20s ease infinite;
 }
 
 /* Tercera palabra - Historiadora */
 .typewriter-word:nth-child(3) {
-    animation: 
-        showWord 0s 8s forwards,
-        typeIn 1.5s steps(15, end) 8s forwards,
-        typeOut 1s steps(15, end) 11s forwards,
-        hideWord 0s 12s forwards;
+    animation: typeWord3 20s ease infinite;
 }
 
 /* Cuarta palabra - Escritora */
 .typewriter-word:nth-child(4) {
-    animation: 
-        showWord 0s 12s forwards,
-        typeIn 1.5s steps(12, end) 12s forwards,
-        typeOut 1s steps(12, end) 15s forwards,
-        hideWord 0s 16s forwards;
+    animation: typeWord4 20s ease infinite;
 }
 
 /* Quinta palabra - Cronista */
 .typewriter-word:nth-child(5) {
-    animation: 
-        showWord 0s 16s forwards,
-        typeIn 1.5s steps(10, end) 16s forwards,
-        typeOut 1s steps(10, end) 19s forwards,
-        hideWord 0s 20s forwards;
-}
-
-/* Reiniciar el ciclo completo cada 20s */
-.hero-eyebrow {
-    animation: cycleContinuous 20s linear infinite;
+    animation: typeWord5 20s ease infinite;
 }
 
 @keyframes showWord {
@@ -670,6 +645,12 @@ nav a:hover::after {
     }
 }
 
+@keyframes stay {
+    from, to {
+        width: 100%;
+    }
+}
+
 @keyframes typeOut {
     from {
         width: 100%;
@@ -679,19 +660,49 @@ nav a:hover::after {
     }
 }
 
-@keyframes cycleContinuous {
-    0%, 100% {
-        opacity: 1;
-    }
+/* Animaciones individuales para cada palabra del typewriter - Transiciones suaves */
+@keyframes typeWord1 {
+    0% { opacity: 1; width: 0; }
+    5% { width: 100%; }
+    15% { opacity: 1; width: 100%; }
+    19% { width: 0; }
+    20%, 100% { opacity: 0; width: 0; }
 }
 
-@keyframes blink-caret {
-    50% {
-        opacity: 0;
-    }
+@keyframes typeWord2 {
+    0%, 20% { opacity: 0; width: 0; }
+    20% { opacity: 1; width: 0; }
+    25% { width: 100%; }
+    35% { opacity: 1; width: 100%; }
+    39% { width: 0; }
+    40%, 100% { opacity: 0; width: 0; }
 }
-        opacity: 1;
-    }
+
+@keyframes typeWord3 {
+    0%, 40% { opacity: 0; width: 0; }
+    40% { opacity: 1; width: 0; }
+    45% { width: 100%; }
+    55% { opacity: 1; width: 100%; }
+    59% { width: 0; }
+    60%, 100% { opacity: 0; width: 0; }
+}
+
+@keyframes typeWord4 {
+    0%, 60% { opacity: 0; width: 0; }
+    60% { opacity: 1; width: 0; }
+    65% { width: 100%; }
+    75% { opacity: 1; width: 100%; }
+    79% { width: 0; }
+    80%, 100% { opacity: 0; width: 0; }
+}
+
+@keyframes typeWord5 {
+    0%, 80% { opacity: 0; width: 0; }
+    80% { opacity: 1; width: 0; }
+    85% { width: 100%; }
+    95% { opacity: 1; width: 100%; }
+    99% { width: 0; }
+    100% { opacity: 0; width: 0; }
 }
 
 @keyframes blink-caret {
@@ -755,18 +766,18 @@ nav a:hover::after {
 }
 
 /* Delays individuales para cada letra - entrada */
-.hero-name .letter:nth-child(1)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.6s forwards, letterGlow 3s ease-in-out 7s infinite; }  /* B */
-.hero-name .letter:nth-child(2)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.7s forwards, letterGlow 3s ease-in-out 8.2s infinite; }  /* e */
-.hero-name .letter:nth-child(3)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.8s forwards, letterGlow 3s ease-in-out 9.5s infinite; }  /* l */
-.hero-name .letter:nth-child(4)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.9s forwards, letterGlow 3s ease-in-out 7.8s infinite; }  /* i */
-.hero-name .letter:nth-child(5)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.0s forwards, letterGlow 3s ease-in-out 10.2s infinite; }  /* n */
-.hero-name .letter:nth-child(6)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.1s forwards, letterGlow 3s ease-in-out 8.7s infinite; }  /* d */
-.hero-name .letter:nth-child(7)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.2s forwards, letterGlow 3s ease-in-out 11.1s infinite; }  /* a */
-.hero-name .letter:nth-child(9)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.4s forwards, letterGlow 3s ease-in-out 7.3s infinite; }  /* R */
-.hero-name .letter:nth-child(10) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.5s forwards, letterGlow 3s ease-in-out 9.1s infinite; }  /* a */
-.hero-name .letter:nth-child(11) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.6s forwards, letterGlow 3s ease-in-out 10.6s infinite; }  /* m */
-.hero-name .letter:nth-child(12) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.7s forwards, letterGlow 3s ease-in-out 8.4s infinite; }  /* o */
-.hero-name .letter:nth-child(13) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.8s forwards, letterGlow 3s ease-in-out 11.8s infinite; }  /* s */
+.hero-name .letter:nth-child(1)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.6s forwards, letterGlow 4s ease-in-out 5s infinite; }  /* B */
+.hero-name .letter:nth-child(2)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.7s forwards, letterGlow 4s ease-in-out 5.5s infinite; }  /* e */
+.hero-name .letter:nth-child(3)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.8s forwards, letterGlow 4s ease-in-out 6s infinite; }  /* l */
+.hero-name .letter:nth-child(4)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 2.9s forwards, letterGlow 4s ease-in-out 6.5s infinite; }  /* i */
+.hero-name .letter:nth-child(5)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.0s forwards, letterGlow 4s ease-in-out 7s infinite; }  /* n */
+.hero-name .letter:nth-child(6)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.1s forwards, letterGlow 4s ease-in-out 7.5s infinite; }  /* d */
+.hero-name .letter:nth-child(7)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.2s forwards, letterGlow 4s ease-in-out 8s infinite; }  /* a */
+.hero-name .letter:nth-child(9)  { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.4s forwards, letterGlow 4s ease-in-out 5.2s infinite; }  /* R */
+.hero-name .letter:nth-child(10) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.5s forwards, letterGlow 4s ease-in-out 5.7s infinite; }  /* a */
+.hero-name .letter:nth-child(11) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.6s forwards, letterGlow 4s ease-in-out 6.2s infinite; }  /* m */
+.hero-name .letter:nth-child(12) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.7s forwards, letterGlow 4s ease-in-out 6.7s infinite; }  /* o */
+.hero-name .letter:nth-child(13) { animation: letterDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 3.8s forwards, letterGlow 4s ease-in-out 7.2s infinite; }  /* s */
 
 /* Espacio entre palabras */
 .hero-name .space {
@@ -774,22 +785,36 @@ nav a:hover::after {
     width: 0.35em;
 }
 
-/* Animación de iluminación aleatoria */
+/* Animación de iluminación aleatoria - Más visible */
 @keyframes letterGlow {
     0%, 100% {
         color: inherit;
         text-shadow: none;
         filter: brightness(1);
     }
-    15% {
-        color: var(--primary, #ff8c00);
+    10% {
+        color: rgba(255, 140, 0, 0.6);
         text-shadow: 
-            0 0 10px rgba(255, 140, 0, 0.8),
-            0 0 20px rgba(255, 140, 0, 0.6),
-            0 0 30px rgba(255, 140, 0, 0.4);
+            0 0 10px rgba(255, 140, 0, 0.5),
+            0 0 20px rgba(255, 140, 0, 0.3);
+        filter: brightness(1.15);
+    }
+    20% {
+        color: #ff8c00;
+        text-shadow: 
+            0 0 15px rgba(255, 140, 0, 0.8),
+            0 0 25px rgba(255, 140, 0, 0.6),
+            0 0 35px rgba(255, 140, 0, 0.4);
         filter: brightness(1.3);
     }
     30% {
+        color: rgba(255, 140, 0, 0.6);
+        text-shadow: 
+            0 0 10px rgba(255, 140, 0, 0.5),
+            0 0 20px rgba(255, 140, 0, 0.3);
+        filter: brightness(1.15);
+    }
+    40% {
         color: inherit;
         text-shadow: none;
         filter: brightness(1);

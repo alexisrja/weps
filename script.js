@@ -206,11 +206,11 @@ const handleNavScroll = throttle(() => {
     requestAnimationFrame(() => {
         if (currentScroll > 100) {
             nav.style.padding = '0.5rem 0';
-            nav.style.background = 'rgba(12, 15, 20, 0.95)';
-            nav.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.3)';
+            nav.style.background = 'rgba(255, 255, 255, 0.98)';
+            nav.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.08)';
         } else {
             nav.style.padding = '1rem 0';
-            nav.style.background = 'rgba(12, 15, 20, 0.8)';
+            nav.style.background = '#ffffff';
             nav.style.boxShadow = 'none';
         }
     });
