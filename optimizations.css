@@ -1,0 +1,263 @@
+/* =============================================
+   OPTIMIZACIONES DE RENDIMIENTO
+   Incluir este archivo después de styles.css
+   ============================================= */
+
+/* Optimizaciones globales de GPU */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Optimizar imágenes */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    content-visibility: auto;
+}
+
+/* GPU Acceleration para elementos animados */
+.hero-content,
+.libro-card,
+.premio-item,
+.btn,
+.custom-cursor,
+.sobre-mi-img img,
+nav {
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Optimizar transiciones y animaciones */
+.libro-card,
+.premio-item,
+.btn,
+.nav-menu a {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+}
+
+/* Lazy loading para imágenes */
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+
+/* Optimizar filtros y efectos */
+.libro-card img {
+    will-change: transform, filter;
+}
+
+.hero {
+    will-change: scroll-position;
+    contain: layout style paint;
+}
+
+/* Optimizar sombras con compositing */
+.libro-card,
+.contact-card,
+#libros {
+    will-change: box-shadow;
+}
+
+/* Reducir paint durante scroll */
+section {
+    contain: layout style;
+}
+
+/* Optimizar animaciones con transform en lugar de propiedades layout */
+@keyframes optimizedFadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes optimizedFloat {
+    0%, 100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -10px, 0);
+    }
+}
+
+/* Aplicar animaciones optimizadas */
+.animate-in-optimized {
+    animation: optimizedFadeInUp 0.8s ease-out forwards;
+}
+
+.float-optimized {
+    animation: optimizedFloat 6s ease-in-out infinite;
+}
+
+/* Content visibility para secciones fuera de viewport */
+section:not(.hero) {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+}
+
+/* Optimizar render de texto */
+h1, h2, h3, h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+}
+
+p, span, a {
+    text-rendering: optimizeSpeed;
+}
+
+/* Prevenir layout shift */
+.libro-card img,
+.sobre-mi-img img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
+
+/* Optimizar blur effects */
+nav {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    isolation: isolate;
+}
+
+/* Reducir overhead de animaciones cuando no son visibles */
+[hidden],
+.offscreen {
+    content-visibility: hidden;
+}
+
+/* Optimizar repaints en hover */
+.btn:hover,
+.libro-card:hover,
+.premio-item:hover {
+    backface-visibility: hidden;
+}
+
+/* Font display optimizado */
+/* Nota: Agregar @font-face completo si usas fuentes custom */
+/*
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+*/
+
+/* Optimizar gradientes */
+.hero,
+body {
+    background-attachment: fixed;
+    will-change: scroll-position;
+}
+
+/* Reducir complejidad de render en móviles */
+@media (max-width: 768px) {
+    /* Deshabilitar efectos costosos en móviles */
+    .custom-cursor,
+    .particle {
+        display: none !important;
+    }
+    
+    body {
+        cursor: auto !important;
+    }
+    
+    /* Simplificar animaciones en móviles */
+    * {
+        animation-duration: 0.3s !important;
+    }
+    
+    /* Reducir blur effects */
+    nav {
+        backdrop-filter: none;
+        background: rgba(12, 15, 20, 0.95);
+    }
+}
+
+/* Optimizar para conexiones lentas */
+@media (prefers-reduced-data: reduce) {
+    /* Deshabilitar imágenes de fondo no esenciales */
+    .hero {
+        background-image: none;
+        background-color: var(--bg);
+    }
+    
+    /* Simplificar efectos */
+    nav {
+        backdrop-filter: none;
+    }
+}
+
+/* Critical CSS - Estilos que deben cargarse primero */
+.critical {
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Optimización de memoria */
+.libro-card img::before {
+    content: '';
+    display: block;
+    padding-top: 125%; /* Aspect ratio 4:5 */
+}
+
+/* Reduce motion para accesibilidad y performance */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Eliminar efectos costosos */
+    .hero-content {
+        will-change: auto;
+    }
+}
+
+/* Optimizar print */
+@media print {
+    .custom-cursor,
+    .particle,
+    nav,
+    .hero-social,
+    .social-links {
+        display: none !important;
+    }
+    
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Performance monitoring hints */
+[data-performance="critical"] {
+    contain: strict;
+    content-visibility: auto;
+}
+
+/* Lazy load wrapper */
+.lazy-load-wrapper {
+    content-visibility: auto;
+    contain-intrinsic-size: 400px;
+}

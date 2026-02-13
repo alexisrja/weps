@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Belinda Ramos - Escritora | Ficción Contemporánea y Realismo Mágico</title>
     
     <!-- SEO Meta Tags -->
@@ -30,7 +31,23 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     
+    <!-- Preconnect para recursos externos -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Preload recursos críticos -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="Belinda.jpeg" as="image">
+    <link rel="preload" href="image.png" as="image">
+    
+    <!-- Estilos críticos -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="optimizations.css">
+    
+    <!-- Prefetch para recursos que se cargarán después -->
+    <link rel="prefetch" href="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=500&fit=crop">
+    <link rel="prefetch" href="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=500&fit=crop">
+    <link rel="prefetch" href="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=500&fit=crop">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -190,6 +207,7 @@
         <p>&copy; 2026 Belinda Ramos. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts con defer para carga optimizada -->
+    <script src="script.js" defer></script>
 </body>
 </html>
