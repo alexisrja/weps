@@ -142,22 +142,20 @@ document.querySelectorAll('a, button, .btn').forEach(element => {
     });
 });
 
-// Cambiar estilo de navegación al hacer scroll
-let lastScroll = 0;
+// Mantener navegación clara al hacer scroll
 const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        nav.style.padding = '0.5rem 0';
-        nav.style.background = 'rgba(12, 15, 20, 0.95)';
+
+    if (!nav) return;
+
+    nav.style.background = '#ffffff';
+    if (currentScroll > 10) {
+        nav.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.06)';
     } else {
-        nav.style.padding = '1rem 0';
-        nav.style.background = 'rgba(12, 15, 20, 0.8)';
+        nav.style.boxShadow = 'none';
     }
-    
-    lastScroll = currentScroll;
 });
 
 // Efecto de escritura para el título hero
