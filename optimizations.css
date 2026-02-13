@@ -1268,7 +1268,7 @@ body {
     /* Reducir blur effects */
     nav {
         backdrop-filter: none;
-        background: rgba(12, 15, 20, 0.95);
+        background: #ffffff;
     }
 }
 
