@@ -402,9 +402,9 @@ footer {
 
 @media (max-width: 640px) {
     .hero {
-        min-height: auto;
-        padding-top: 108px;
-        padding-bottom: 60px;
+        min-height: 100vh;
+        padding-top: 120px;
+        padding-bottom: 80px;
     }
 
     .scroll-indicator {

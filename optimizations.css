@@ -1260,9 +1260,19 @@ body {
         cursor: auto !important;
     }
     
-    /* Simplificar animaciones en móviles */
-    * {
+    /* Simplificar animaciones en móviles pero mantener las importantes */
+    .libro-card,
+    .premio-item {
         animation-duration: 0.3s !important;
+    }
+    
+    /* Mantener animaciones del hero */
+    .hero {
+        animation: heroBackgroundShift 20s ease infinite !important;
+    }
+    
+    .letter {
+        animation-duration: 0.6s !important;
     }
     
     /* Reducir blur effects */
